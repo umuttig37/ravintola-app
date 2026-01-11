@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hallinta - Mylly Bistro</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header compact">
+      <nav class="nav">
+        <a class="logo" href="/">Mylly Bistro</a>
+        <button
+          class="nav-toggle"
+          aria-label="Avaa valikko"
+          data-i18n="nav.menu"
+          data-i18n-attr="aria-label:nav.open"
+        >
+          Valikko
+        </button>
+        <div class="nav-links">
+          <a href="/" data-i18n="nav.home">Etusivu</a>
+          <a href="/menu.html" data-i18n="nav.menuLink">Ruokalista</a>
+          <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+          <a href="/login.html" data-i18n="nav.login">Kirjaudu</a>
+          <a href="/admin.html" class="is-active" data-i18n="nav.admin">Hallinta</a>
+          <button class="nav-lang" id="lang-toggle" type="button" data-i18n-attr="aria-label:lang.toggle">EN</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <h1 data-i18n="admin.title">Hallintapaneeli</h1>
+          <p class="muted" data-i18n="admin.lead"></p>
+        </div>
+
+        <div id="admin-locked" class="notice" data-i18n="admin.locked"></div>
+
+        <div id="admin-panel" class="hidden">
+          <div class="admin-grid">
+            <div class="card">
+              <h2 data-i18n="admin.newItem">Uusi ruokalista-alkio</h2>
+              <form id="menu-form" class="form">
+                <label>
+                  <span data-i18n="admin.form.name">Nimi</span>
+                  <input type="text" name="name" required />
+                </label>
+                <label>
+                  <span data-i18n="admin.form.desc">Kuvaus</span>
+                  <input type="text" name="description" />
+                </label>
+                <label>
+                  <span data-i18n="admin.form.price">Hinta (eur)</span>
+                  <input type="number" step="0.1" name="price" required />
+                </label>
+                <label>
+                  <span data-i18n="admin.form.diets">Diettagit (esim. L,G,VEG)</span>
+                  <input type="text" name="diet_tags" />
+                </label>
+                <label>
+                  <span data-i18n="admin.form.allergens">Allergeenit</span>
+                  <input type="text" name="allergens" />
+                </label>
+                <label>
+                  <span data-i18n="admin.form.category">Kategoria</span>
+                  <input type="text" name="category" />
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="available" checked />
+                  <span data-i18n="action.available">Saatavilla</span>
+                </label>
+                <button class="btn primary" type="submit" data-i18n="admin.form.save">Tallenna</button>
+                <p id="menu-form-msg" class="form-error"></p>
+              </form>
+            </div>
+
+            <div class="card">
+              <h2 data-i18n="admin.menu.title">Ruokalista</h2>
+              <div id="admin-menu" class="stack"></div>
+            </div>
+
+            <div class="card">
+              <h2 data-i18n="admin.news.title">Tiedotteet</h2>
+              <p class="muted" data-i18n="admin.news.lead"></p>
+              <form id="news-form" class="form">
+                <label>
+                  <span data-i18n="admin.news.titleLabel">Otsikko</span>
+                  <input type="text" name="title" required />
+                </label>
+                <label>
+                  <span data-i18n="admin.news.bodyLabel">Teksti</span>
+                  <textarea name="body" rows="3"></textarea>
+                </label>
+                <label>
+                  <span data-i18n="admin.news.dateLabel">Päivämäärä</span>
+                  <input type="date" name="date" />
+                </label>
+                <button class="btn primary" type="submit" data-i18n="admin.news.save">Tallenna</button>
+                <p id="news-form-msg" class="form-error"></p>
+              </form>
+              <div id="admin-news" class="stack"></div>
+              <div id="admin-news-empty" class="muted" data-i18n="admin.news.empty"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="admin.orders.title">Tilaukset</h2>
+            <div id="admin-orders" class="stack"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Mylly Bistro</strong>
+        <p class="muted">Metropolia Myllypuro</p>
+      </div>
+      <div>
+        <a href="/menu.html" data-i18n="nav.menuLink">Ruokalista</a>
+        <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+      </div>
+      <div class="muted" data-i18n="admin.footer">Ylläpito seuraa tilauksia reaaliajassa.</div>
+    </footer>
+
+    <script src="/js/i18n.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/api.js" defer></script>
+    <script src="/js/admin.js" defer></script>
+  </body>
+</html>

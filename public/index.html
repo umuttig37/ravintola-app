@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mylly Bistro - Metropolia Myllypuro</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="/">Mylly Bistro</a>
+        <button
+          class="nav-toggle"
+          aria-label="Avaa valikko"
+          data-i18n="nav.menu"
+          data-i18n-attr="aria-label:nav.open"
+        >
+          Valikko
+        </button>
+        <div class="nav-links">
+          <a href="/" class="is-active" data-i18n="nav.home">Etusivu</a>
+          <a href="/menu.html" data-i18n="nav.menuLink">Ruokalista</a>
+          <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+          <a href="/login.html" data-i18n="nav.login">Kirjaudu</a>
+          <a href="/admin.html" data-i18n="nav.admin">Hallinta</a>
+          <button class="nav-lang" id="lang-toggle" type="button" data-i18n-attr="aria-label:lang.toggle">EN</button>
+        </div>
+      </nav>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Metropolia Myllypuro</p>
+          <h1 data-i18n="hero.title">Kampuksen rohkein lounaspaikka.</h1>
+          <p class="lead" data-i18n="hero.lead"></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="/menu.html" data-i18n="hero.cta.menu">Tutustu ruokalistaan</a>
+            <a class="btn ghost" href="#paivan-menu" data-i18n="hero.cta.daily">Katso päivän menu</a>
+          </div>
+          <div class="hero-badges">
+            <span data-i18n="hero.badge.price">Opiskelijahinta</span>
+            <span data-i18n="hero.badge.responsible">Vastuullinen keittiö</span>
+            <span data-i18n="hero.badge.vegan">Vegaaniset vaihtoehdot</span>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-card">
+            <h3 data-i18n="hero.fast.title">Tilaa nopeasti</h3>
+            <p data-i18n="hero.fast.body"></p>
+            <a class="btn small" href="/cart.html" data-i18n="hero.fast.cta">Avaa ostoskori</a>
+          </div>
+          <div class="hero-card accent">
+            <h3 data-i18n="hero.hsl.title">HSL-tilanne</h3>
+            <p data-i18n="hero.hsl.body"></p>
+            <div id="hsl-preview" class="mini-list" data-i18n="loading">Ladataan...</div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="paivan-menu" class="section">
+        <div class="section-head">
+          <h2 data-i18n="daily.title">Päivän ruokalista</h2>
+          <p id="daily-date" class="muted"></p>
+        </div>
+        <div id="daily-menu" class="grid cards"></div>
+        <div id="daily-empty" class="empty-state hidden" data-i18n="daily.empty"></div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <h2 data-i18n="choice.title">Ruoka, joka huomioi valintasi</h2>
+          <p class="lead" data-i18n="choice.lead"></p>
+          <div class="pill-row">
+            <span>G = gluteeniton</span>
+            <span>L = laktoositon</span>
+            <span>VEG = kasvis</span>
+            <span>VE = vegaaninen</span>
+          </div>
+          <a class="btn ghost" href="/menu.html" data-i18n="choice.cta">Avaa koko ruokalista</a>
+        </div>
+        <div class="info-panel">
+          <h3 data-i18n="services.title">Palvelut</h3>
+          <ul>
+            <li data-i18n="services.pickup">Nopeat noudot</li>
+            <li data-i18n="services.preorder">Ennakkotilaukset</li>
+            <li data-i18n="services.allergens">Allergeenit selkeästi</li>
+          </ul>
+          <div class="price-note" data-i18n="services.price"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2 data-i18n="hsl.title">HSL-lähdöt Myllypuron kampukselta</h2>
+          <p class="muted" data-i18n="hsl.lead"></p>
+        </div>
+        <div id="hsl-map" class="map-frame" aria-label="HSL-lähtöjen kartta" data-i18n-attr="aria-label:hsl.mapLabel"></div>
+        <div id="hsl-list" class="grid cards"></div>
+        <div id="hsl-empty" class="empty-state hidden"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2 data-i18n="news.title">Tiedotteet</h2>
+          <p class="muted" data-i18n="news.lead"></p>
+        </div>
+        <div id="news-list" class="grid cards"></div>
+        <div id="news-empty" class="empty-state hidden" data-i18n="news.empty"></div>
+      </section>
+
+      <section class="section story">
+        <div>
+          <h2 data-i18n="story.title">Miksi Mylly Bistro?</h2>
+          <p data-i18n="story.body"></p>
+        </div>
+        <div class="story-card">
+          <h3 data-i18n="story.address.title">Osoite</h3>
+          <p data-i18n="story.address.body">Myllypurontie 1, 00920 Helsinki</p>
+          <p class="muted" data-i18n="story.address.hours">Auki arkisin 10.30 - 15.00</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Mylly Bistro</strong>
+        <p class="muted">Metropolia Myllypuro</p>
+      </div>
+      <div>
+        <a href="/menu.html" data-i18n="nav.menuLink">Ruokalista</a>
+        <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+        <a href="/admin.html" data-i18n="nav.admin">Hallinta</a>
+      </div>
+      <div class="muted" data-i18n="footer.since">Opiskelijaruokailua vuodesta 2026.</div>
+    </footer>
+
+    <script src="/js/i18n.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/api.js" defer></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script src="/js/home.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruokalista - Mylly Bistro</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header compact">
+      <nav class="nav">
+        <a class="logo" href="/">Mylly Bistro</a>
+        <button
+          class="nav-toggle"
+          aria-label="Avaa valikko"
+          data-i18n="nav.menu"
+          data-i18n-attr="aria-label:nav.open"
+        >
+          Valikko
+        </button>
+        <div class="nav-links">
+          <a href="/" data-i18n="nav.home">Etusivu</a>
+          <a href="/menu.html" class="is-active" data-i18n="nav.menuLink">Ruokalista</a>
+          <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+          <a href="/login.html" data-i18n="nav.login">Kirjaudu</a>
+          <a href="/admin.html" data-i18n="nav.admin">Hallinta</a>
+          <button class="nav-lang" id="lang-toggle" type="button" data-i18n-attr="aria-label:lang.toggle">EN</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <h1 data-i18n="menu.title">Ravintolan ruokalista</h1>
+          <p class="muted" data-i18n="menu.lead"></p>
+        </div>
+
+        <div class="filters">
+          <label>
+            <input type="checkbox" value="G" class="filter" />
+            <span data-i18n="menu.filter.gluten">Gluteeniton (G)</span>
+          </label>
+          <label>
+            <input type="checkbox" value="L" class="filter" />
+            <span data-i18n="menu.filter.lactose">Laktoositon (L)</span>
+          </label>
+          <label>
+            <input type="checkbox" value="VEG" class="filter" />
+            <span data-i18n="menu.filter.veg">Kasvis (VEG)</span>
+          </label>
+          <label>
+            <input type="checkbox" value="VE" class="filter" />
+            <span data-i18n="menu.filter.vegan">Vegaaninen (VE)</span>
+          </label>
+        </div>
+
+        <div id="menu-list" class="grid cards"></div>
+        <div id="menu-empty" class="empty-state hidden" data-i18n="menu.empty"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Mylly Bistro</strong>
+        <p class="muted">Metropolia Myllypuro</p>
+      </div>
+      <div>
+        <a href="/" data-i18n="nav.home">Etusivu</a>
+        <a href="/cart.html" data-i18n="nav.cart">Ostoskori</a>
+        <a href="/admin.html" data-i18n="nav.admin">Hallinta</a>
+      </div>
+      <div class="muted" data-i18n="menu.footer">Tilaa etukäteen ja nouda heti.</div>
+    </footer>
+
+    <script src="/js/i18n.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/api.js" defer></script>
+    <script src="/js/cart-store.js" defer></script>
+    <script src="/js/menu.js" defer></script>
+  </body>
+</html>
