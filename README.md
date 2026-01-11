@@ -1,4 +1,4 @@
-﻿# Umut's Mylly Bistro - Ravintola Web-projekti
+# Umut's Mylly Bistro - Ravintola Web projekti (koulutehtävä)
 
 Tämä projekti toteuttaa ravintola menuja, ostamiselle, 
 hsl lähtöille metropolian kampukselta ja paljon muuta web sovelluksen (vanilla JS + Node/Express + SQLite).
