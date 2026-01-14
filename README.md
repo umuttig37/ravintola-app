@@ -20,3 +20,5 @@ hsl lähtöille metropolian kampukselta ja paljon muuta web sovelluksen (vanilla
 ## API-rajapinnat
 - Päivän ruokalista: `https://www.sodexo.fi/ruokalistat/output/daily_json/158/YYYY-MM-DD`
 - HSL GraphQL: `https://api.digitransit.fi/routing/v2/hsl/gtfs/v1`
+
+Linkki sivuun: https://ravintola-app.onrender.com
